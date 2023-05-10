@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+markdown = "*"
+django-filter = "*"
+django-rest-auth = {extras = ["with_social"], version = "*"}
+django-rest-auth-forked = "*"
+djangorestframework-simplejwt = "*"
+pyyaml = "*"
+requests = "*"
+django-cors-headers = "*"
+django-role-permissions = "*"
+django-rest-knox = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
+python_full_version = "3.10.6"
