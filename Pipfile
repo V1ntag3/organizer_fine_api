@@ -16,6 +16,8 @@ requests = "*"
 django-cors-headers = "*"
 django-role-permissions = "*"
 django-rest-knox = "*"
+django-heroku = "*"
+gunicorn = "*"
 
 [dev-packages]
 
