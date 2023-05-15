@@ -1,0 +1,16 @@
+{
+    "builds":[{
+        "src": "organizer_fina_api.wsgi.py",
+        "use": "@vercel/python",
+        "config":{
+            "maxLambdaSize": "50mb",
+            "runtime": "python3.10.6"
+        }
+    }],
+    "routes":[
+        {
+            "src": "/(.*)",
+            "dest": "organizer_fina_api.wsgi.py"
+        }
+    ]
+}
