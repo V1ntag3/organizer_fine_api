@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+from datetime import timedelta
+from rest_framework.settings import api_settings
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-38z#u-b!y@)d#%w9uq&$x1oozi0ixn#4szi77mr!wkr)38nzcv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'knox',
     'core',
 
@@ -111,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Fortaleza'
 
 USE_I18N = True
 
@@ -141,3 +143,13 @@ REST_FRAMEWORK = {
 }
 
 APPEND_SLASH = False
+
+REST_KNOX = {
+    'SECURE_HASH_ALGORITHM': 'cryptography.hazmat.primitives.hashes.SHA512',
+    'AUTH_TOKEN_CHARACTER_LENGTH': 64,
+    'TOKEN_TTL': None,
+    'USER_SERIALIZER': 'knox.serializers.UserSerializer',
+    'TOKEN_LIMIT_PER_USER': None,
+    'AUTO_REFRESH': False,
+    'EXPIRY_DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S',
+}

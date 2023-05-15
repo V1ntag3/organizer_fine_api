@@ -18,14 +18,14 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from knox import views as knox_views
 from rest_framework import routers
-from core.views import RevenueSpendingView, RegisterAPI, LoginAPI
+from core.views import RevenueSpendingView, RegisterAPI, LoginAPI, ManageUserView
 
 
 api_router = routers.DefaultRouter()
 api_router.register(r"revenue_spending", RevenueSpendingView, basename='revenue_spending')
 
 urlpatterns = [
-    
+    path('api/profile/', ManageUserView.as_view(), name='profile'),
     path('api/login/', LoginAPI.as_view(), name='login'),
     path('api/logout/', knox_views.LogoutView.as_view(), name='logout'),
     path('api/logoutall/', knox_views.LogoutAllView.as_view(), name='logoutall'),

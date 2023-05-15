@@ -16,10 +16,20 @@ class RevenueSpending(models.Model):
         ('0', 'Revenue'),
         ('1', 'Spending')
     ]
+    TYPE_CAT = [
+        ('0', 'Comida'),
+        ('1', 'Serviço'),
+        ('2', 'Eletrônico'),
+        ('3', 'Vestuário'),
+        ('4', 'Entretenimento'),
+        ('5', 'Outros'),
+    ]
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     about = models.CharField(max_length=150, null=False)
     date = models.DateTimeField(auto_created=True)
     value = models.FloatField(null=False)
     type = models.CharField(max_length=1, choices=IS_REVENUE, null=False)
+    typeCat = models.CharField(max_length=1, choices=TYPE_CAT)
+
     def __str__(self):
         return self.name
