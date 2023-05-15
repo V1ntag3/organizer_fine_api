@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 from rest_framework.settings import api_settings
-import django_hereko
+import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -155,4 +155,4 @@ REST_KNOX = {
     'EXPIRY_DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S',
 }
 
-django_hereko.settings(locals())
+django_heroku.settings(locals())
