@@ -18,6 +18,7 @@ django-role-permissions = "*"
 django-rest-knox = "*"
 django-heroku = "*"
 gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 
