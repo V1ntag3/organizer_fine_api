@@ -98,9 +98,9 @@ class RevenueSpendingView(viewsets.ModelViewSet):
     ]
         queryset = self.queryset
         
-        minDate = str(self.request.GET['year']) + '-' + str(meses.index(self.request.GET['month'])) + '-01 ' + '00:00'
+        minDate = str(self.request.GET['year']) + '-' + str(meses.index(self.request.GET['month'])+1) + '-01 ' + '00:00'
         
-        maxDate = str(self.request.GET['year']) + '-' + str(meses.index(self.request.GET['month'])) + '-' + str(calendar.monthrange(int(self.request.GET['year']) , int(meses.index(self.request.GET['month'])))[1]) + ' 23:59'
+        maxDate = str(self.request.GET['year']) + '-' + str(meses.index(self.request.GET['month'])+1) + '-' + str(calendar.monthrange(int(self.request.GET['year']) , int(meses.index(self.request.GET['month'])+1))[1]) + ' 23:59'
         
         query_set = queryset.filter(user=get_user_from_token(
             self.request.headers['Authorization']), date__gte=minDate, date__lte=maxDate).order_by('-date')
