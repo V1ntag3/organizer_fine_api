@@ -42,6 +42,7 @@ class RegisterAPI(generics.GenericAPIView):
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
+        print(request.data['first_name'])
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
         return Response({
