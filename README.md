@@ -9,6 +9,9 @@ Documentação pode ser encontrada no postman: https://documenter.getpostman.com
 
 **Back-end:** Django
 
+## Hospedagem
+
+Disponivel em: https://v1nt4g3.pythonanywhere.com/
 
 ## Rodando localmente
 
